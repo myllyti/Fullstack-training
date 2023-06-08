@@ -29,9 +29,9 @@ const Header = ({ header1 }) => {
 const Content = ({ lista }) => {
   return (
     <div>
-      <Part text1={lista[0][0]} text2={lista[0][1]} />
-      <Part text1={lista[1][0]} text2={lista[1][1]} />
-      <Part text1={lista[2][0]} text2={lista[2][1]} />
+      <Part text1={lista[0].part} text2={lista[0].exercises} />
+      <Part text1={lista[1].part} text2={lista[1].exercises} />
+      <Part text1={lista[2].part} text2={lista[2].exercises} />
     </div>
   );
 };

@@ -1,39 +1,51 @@
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+  const course = "Half Stack application development";
+  const part1 = "Fundamentals of React";
+  const exercises1 = 10;
+  const part2 = "Using props to pass data";
+  const exercises2 = 7;
+  const part3 = "State of a component";
+  const exercises3 = 14;
+
+  const lista = [
+    { part: part1, exercises: exercises1 },
+    { part: part2, exercises: exercises2 },
+    { part: part3, exercises: exercises3 },
+  ];
 
   return (
     <div>
       <Header header1={course} />
-      <Content text1={part1} text2={exercises1} />
-      <Content text1={part2} text2={exercises2} />
-      <Content text1={part3} text2={exercises3} />
+      <Content lista={lista} />
       <Total count={exercises1 + exercises2 + exercises3} />
     </div>
-  )
-}
+  );
+};
 
 const Header = ({ header1 }) => {
-  return (
-    <h1>{header1}</h1>
-  )
-}
+  return <h1>{header1}</h1>;
+};
 
-const Content = ({ text1, text2 }) => {
+const Content = ({ lista }) => {
   return (
-    <p>{text1} {text2}</p>
-  )
-}
+    <div>
+      <Part text1={lista[0][0]} text2={lista[0][1]} />
+      <Part text1={lista[1][0]} text2={lista[1][1]} />
+      <Part text1={lista[2][0]} text2={lista[2][1]} />
+    </div>
+  );
+};
+
+const Part = ({ text1, text2 }) => {
+  return (
+    <p>
+      {text1} {text2}
+    </p>
+  );
+};
 
 const Total = ({ count }) => {
-  return (
-    <p>Number of exercises {count}</p>
-  )
-}
+  return <p>Number of exercises {count}</p>;
+};
 
-export default App
+export default App;
